@@ -74,7 +74,12 @@ const Navbar: FC<NavbarProps> = (props) => {
                 </Search>
                 <Icons>
                     <IconButton aria-label="mails" sx={{color: "white"}}>
-                        <Badge badgeContent={4} color="error">
+                        <Badge
+                            badgeContent={4}
+                            color="error"
+                            // anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                            // variant={"dot"}
+                        >
                             <MailIcon/>
                         </Badge>
                     </IconButton>
@@ -83,14 +88,14 @@ const Navbar: FC<NavbarProps> = (props) => {
                             <Notifications/>
                         </Badge>
                     </IconButton>
-                    <IconButton aria-label="User's settings">
+                    <IconButton
+                            aria-label="User's settings"
+                            aria-controls="menu-appbar"
+                            onClick={(e: MouseEvent<HTMLElement>) => setAnchorEl(e.currentTarget)}
+                    >
                         <Avatar
                             alt="User's Avatar"
-                            src="/static/images/avatar/1.jpg"
-                            onClick={(e: MouseEvent<HTMLDivElement>) => {
-                                console.log(e.currentTarget);
-                                setAnchorEl(e.currentTarget);
-                            }}
+                            // src="/static/images/avatar/1.jpg"
                         />
                     </IconButton>
                 </Icons>
